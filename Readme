@@ -1,0 +1,34 @@
+💰 Personal Expense Tracker
+
+A simple web app to track expenses (Add, Edit, Delete, View Summary, Search features).
+
+---
+
+Tech Stack:
+- Node.js
+- Express
+- SQLite
+- EJS
+- Bootstrap 5
+
+---
+
+How to Run:
+
+1. Clone the repository to your local system.
+2. Open terminal in the project folder.
+3. Install dependencies:
+
+   npm install
+   (If package.json doesn't exist, first run: npm init -y)
+   npm install express body-parser sqlite3 ejs
+
+4. Start the server:
+   node server.js
+5. Open your browser and go to:
+
+   http://localhost:3000
+6. Use the web system: Add, Edit, Delete, Filter/Search, View Summary.
+
+demo video: https://drive.google.com/file/d/1SGH0jNeAP9rZYXAEwcAawrt--JIokHBi/view?usp=sharing
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+  <div class="container mt-4">
+    <h1 class="text-center mb-4">💰 Personal Expense Tracker</h1>
+
+    <% if (message) { %>
+      <div class="alert alert-success text-center"><%= message %></div>
+    <% } %>
+
+    <form class="row g-3 mb-4 justify-content-center" method="get" action="/">
+      <div class="col-md-3">
+        <input type="text" name="category" class="form-control" placeholder="Search by category" />
+      </div>
+      <div class="col-md-3">
+        <input type="date" name="from" class="form-control" placeholder="From Date" />
+      </div>
+      <div class="col-md-3">
+        <input type="date" name="to" class="form-control" placeholder="To Date" />
+      </div>
+      <div class="col-md-3 d-flex gap-2">
+        <button class="btn btn-primary w-100">🔍 Search</button>
+        <a href="/" class="btn btn-secondary w-100">🔄 Reset</a>
+      </div>
+    </form>
+
+  
+    <div class="d-flex justify-content-center gap-3 mb-4">
+      <a href="/add" class="btn btn-success btn-lg">➕ Add Expense</a>
+      <a href="/summary" class="btn btn-info btn-lg">📊 View Summary</a>
+    </div>
+
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <table class="table table-hover align-middle text-center">
+          <thead class="table-dark">
+            <tr>
+              <th>ID</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Note</th>
+              <th>Category</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (expenses.length === 0) { %>
+              <tr>
+                <td colspan="6" class="text-muted">No expenses found</td>
+              </tr>
+            <% } %>
+
+            <% expenses.forEach(exp => { %>
+              <tr>
+                <td><%= exp.id %></td>
+                <td class="fw-bold text-success">₹<%= exp.amount %></td>
+                <td><%= exp.date %></td>
+                <td><%= exp.note %></td>
+                <td><span class="badge bg-primary"><%= exp.category %></span></td>
+                <td>
+                  <a href="/edit/<%= exp.id %>" class="btn btn-sm btn-outline-warning">✏️ Edit</a>
+                  <a href="/delete/<%= exp.id %>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this expense?')">❌ Delete</a>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
