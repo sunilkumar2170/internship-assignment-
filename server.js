@@ -5,7 +5,7 @@ const sqlite3 = require("sqlite3").verbose();
 
 const app = express();
 const port = 3000;
-const db = new sqlite3.Database("C:\\Users\\SUNIL\\Downloads\\data");
+const db = new sqlite3.Database("C:\\Users\\SUNIL\\Downloads\\data.sql");
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
